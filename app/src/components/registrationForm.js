@@ -23,12 +23,13 @@ function RegistrationForm({ backendData }) {
     const [igitsinacye, setIgitsinacye] = useState("");
     const [igiheyavukiy, setIgiheyavukiy] = useState("");
     const [kuribose, setKuribose] = useState("");
-    const [umwiharikowumushinga, setUmwiharikowumushinga] = useState("");
-    const [icyatumyeyitabiraishimweryIndatwa, setIcyatumyeyitabiraishimweryIndatwa] = useState("");
+    
     const [icyoyitezeUmusaruroyiteze, setIcyoyitezeUmusaruroyiteze] = useState("");
     const [icyoumushingaweumariyeabaturage, setIcyoumushingaweumariyeabaturage] = useState("");
     const [uruharerwurubyirukomumushingawe, setUruharerwurubyirukomumushingawe] = useState("");
     const [ukoawuhuzanatekinoloji, setUkoawuhuzanatekinoloji] = useState("");
+    const [umwiharikowumushinga, setUmwiharikowumushinga] = useState("");
+    const [icyatumyeyitabiraishimweryIndatwa, setIcyatumyeyitabiraishimweryIndatwa] = useState("");
 
     function handleAmazina (e) {
             setAmazina(e.target.value);
@@ -94,12 +95,7 @@ function RegistrationForm({ backendData }) {
         function handleKuribose (e) {
             setKuribose(e.target.value);
         }
-        function handleUmwiharikowumushinga (e) {
-            setUmwiharikowumushinga(e.target.value);
-        }
-        function handleIcyatumyeyitabiraishimweryIndatwa (e) {
-            setIcyatumyeyitabiraishimweryIndatwa(e.target.value);
-        }
+        
         function handleIcyoyitezeUmusaruroyiteze (e) {
             setIcyoyitezeUmusaruroyiteze(e.target.value);
         }
@@ -111,6 +107,12 @@ function RegistrationForm({ backendData }) {
         }
         function handleUkoawuhuzanatekinoloji (e) {
             setUkoawuhuzanatekinoloji(e.target.value);
+        }
+        function handleUmwiharikowumushinga (e) {
+            setUmwiharikowumushinga(e.target.value);
+        }
+         function handleIcyatumyeyitabiraishimweryIndatwa (e) {
+            setIcyatumyeyitabiraishimweryIndatwa(e.target.value);
         }
 
     
@@ -139,12 +141,12 @@ function RegistrationForm({ backendData }) {
             setIgitsinacye('');
             setIgiheyavukiy('');
             setKuribose('');
-            setUmwiharikowumushinga('');
-            setIcyatumyeyitabiraishimweryIndatwa('');
             setIcyoyitezeUmusaruroyiteze('');
             setIcyoumushingaweumariyeabaturage('');
             setUruharerwurubyirukomumushingawe('');
             setUkoawuhuzanatekinoloji('');
+             setUmwiharikowumushinga('');
+             setIcyatumyeyitabiraishimweryIndatwa('');
         }       
     
     //postdata
@@ -153,8 +155,8 @@ function RegistrationForm({ backendData }) {
       console.log(amazina,telephone,email,ahoaherereye,igitsina,igiheyavukiye,numeroIndangamuntu,
         amazinayikigo,ahogikorera,visionyikigo,missionyikigo,igihecyatangiriyegukora,amazinayusabamuzinaryikigo,
         icyoashinzwemukigo,telephonezusabiraikigo,ahoahererey,numeroyIndangamuntuyusabiraikigo,emailyusabiraikigo,
-        igitsinacye,igiheyavukiy,kuribose,umwiharikowumushinga,icyatumyeyitabiraishimweryIndatwa,
-        icyoyitezeUmusaruroyiteze,icyoumushingaweumariyeabaturage,uruharerwurubyirukomumushingawe,ukoawuhuzanatekinoloji)
+        igitsinacye,igiheyavukiy,kuribose,icyoyitezeUmusaruroyiteze,icyoumushingaweumariyeabaturage,uruharerwurubyirukomumushingawe,
+        ukoawuhuzanatekinoloji,umwiharikowumushinga,icyatumyeyitabiraishimweryIndatwa)
       const response = await fetch("/", {
         method: "POST",
         headers: { "content-Type": "application/json" },
@@ -180,12 +182,12 @@ function RegistrationForm({ backendData }) {
           sex_person_company:igitsinacye,
           date_of_birth_company_person:igiheyavukiy,
           forall:kuribose,
-          uniqueness_project:umwiharikowumushinga,
-          cause_presence:icyatumyeyitabiraishimweryIndatwa,
           havestings_project:icyoyitezeUmusaruroyiteze,
           role_of_project:icyoumushingaweumariyeabaturage,
           contribution_youth_project:uruharerwurubyirukomumushingawe,
-          connection_teckinolog:ukoawuhuzanatekinoloji
+          connection_teckinolog:ukoawuhuzanatekinoloji,
+          uniqueness_project:umwiharikowumushinga,
+          cause_presence:icyatumyeyitabiraishimweryIndatwa,
 
           }),
       });
@@ -202,6 +204,42 @@ function RegistrationForm({ backendData }) {
       <form className="form" onSubmit={(e) => submitHandler(e)}>
             <h4>INSTRUCTIONS FOR REQUESTION </h4>
             <h5>KUZUZA UMWIRONDORO</h5>
+
+             {/* {backendData.map((item) => {
+            return (
+              <div key={item.id}>
+                <h3>{item.name}</h3>
+                <h3>{item.telephone}</h3>
+                <h3>{item.email}</h3>
+                <h3>{item.place}</h3>
+                <h3>{item.sex}</h3>
+                <h3>{item.date_of_birth}</h3>
+                <h3>{item.id_number}</h3>
+                <h3>{item.name_of_company}</h3>
+                <h3>{item.place_of_company}</h3>
+                <h3>{item.visino_of_company}</h3>
+                <h3>{item.mission_of_company}</h3>
+                <h3>{item.date_of_start_working}</h3>
+                <h3>{item.name_request_company}</h3>
+                <h3>{item.title_person}</h3>
+                <h3>{item.telephone_person_company}</h3>
+                <h3>{item.place_of_person_company}</h3>
+                <h3>{item.id_number_person_company}</h3>
+                <h3>{item.email_person_company}</h3>
+                <h3>{item.sex_person_company}</h3>
+                <h3>{item.date_of_birth_company_person}</h3>
+                <h3>{item.forall}</h3>
+                <h3>{item.havestings_project}</h3>
+                <h3>{item.role_of_project}</h3>
+                <h3>{item.contribution_youth_project}</h3>
+                <h3>{item.connection_teckinolog}</h3>
+                <h3>{item.uniqueness_project}</h3>
+                <h3>{item.cause_presence}</h3>
+
+              </div>
+            );
+          })} */}
+
             <div className="form-body">
             <h8>a.Umwiro w’usaba kugiti cye cyangwa umunyamakuru , umurinzi gakondo ugizwe n’ibi bikurikira</h8>
                  <div className="Name">
@@ -305,29 +343,30 @@ function RegistrationForm({ backendData }) {
                     <label className="form__label" htmlfor="Kuribose">1.Kuri bose (ku byiciro byose uko ari 5)</label>
                     <input className="form__input" type="text" value={kuribose} onChange = {(e) => handleKuribose(e)} id="Kuribose" placeholder="Kuribose"/>
                 </div>
-                <div className="Umwiharikowumushinga">
-                    <label className="form__label" htmlfor="Umwiharikowumushinga">2.Umwihariko w’umushinga</label>
-                    <input className="form__input" type="text" value={umwiharikowumushinga} onChange = {(e) => handleUmwiharikowumushinga(e)} id="Umwiharikowumushinga" placeholder="Umwihariko wumushinga"/>
-                </div>
-                <div className="IcyatumyeyitabiraishimweryIndatwa">
-                    <label className="form__label" htmlfor="IcyatumyeyitabiraishimweryIndatwa">3.Icyatumye yitabira ishimwe ry’Indatwa</label>
-                    <input className="form__input" type="text" value={icyatumyeyitabiraishimweryIndatwa} onChange = {(e) => handleIcyatumyeyitabiraishimweryIndatwa(e)} id="IcyatumyeyitabiraishimweryIndatwa" placeholder="Icyatumye yitabira ishimwe ryIndatwa"/>
-                </div>
+                
                 <div className="IcyoyitezeUmusaruroyiteze">
-                    <label className="form__label" htmlfor="IcyoyitezeUmusaruroyiteze">4.Icyo yiteze/ Umusaruro yiteze</label>
+                    <label className="form__label" htmlfor="IcyoyitezeUmusaruroyiteze">2.Icyo yiteze/ Umusaruro yiteze</label>
                     <input className="form__input" type="text" value={icyoyitezeUmusaruroyiteze} onChange = {(e) => handleIcyoyitezeUmusaruroyiteze(e)} id="IcyoyitezeUmusaruroyiteze" placeholder="Icyo yiteze/Umusaruro yiteze"/>
                 </div>
                 <div className="Icyoumushingaweumariyeabaturage">
-                    <label className="form__label" htmlfor="Icyoumushingaweumariyeabaturage">5.Icyo umushingawe umariye abaturage</label>
+                    <label className="form__label" htmlfor="Icyoumushingaweumariyeabaturage">3.Icyo umushingawe umariye abaturage</label>
                     <input className="form__input" type="text" value={icyoumushingaweumariyeabaturage} onChange = {(e) => handleIcyoumushingaweumariyeabaturage(e)} id="Icyoumushingaweumariyeabaturage" placeholder="Icyo umushinga we umariye abaturage"/>
                 </div>
                 <div className="Uruharerwurubyirukomumushingawe">
-                    <label className="form__label" htmlfor="Uruharerwurubyirukomumushingawe">6.Uruhare rw’urubyiruko mu mushingawe </label>
+                    <label className="form__label" htmlfor="Uruharerwurubyirukomumushingawe">4.Uruhare rw’urubyiruko mu mushingawe </label>
                     <input className="form__input" type="text" value={uruharerwurubyirukomumushingawe} onChange = {(e) => handleUruharerwurubyirukomumushingawe(e)} id="Uruharerwurubyirukomumushingawe" placeholder="Uruhare rwurubyiruko  mumushinga we"/>
                 </div>
                 <div className="Ukoawuhuzanatekinoloji">
-                    <label className="form__label" htmlfor="Ukoawuhuzanatekinoloji">7.Uko awuhuza na tekinoloji</label>
+                    <label className="form__label" htmlfor="Ukoawuhuzanatekinoloji">5.Uko awuhuza na tekinoloji</label>
                     <input className="form__input" type="text" value={ukoawuhuzanatekinoloji} onChange = {(e) => handleUkoawuhuzanatekinoloji(e)} id="Ukoawuhuzanatekinoloji" placeholder="Uko awuhuza na tekino loji"/>
+                </div>
+                <div className="Umwiharikowumushinga">
+                    <label className="form__label" htmlfor="Umwiharikowumushinga">6.Umwihariko w’umushinga</label>
+                    <input className="form__input" type="text" value={umwiharikowumushinga} onChange = {(e) => handleUmwiharikowumushinga(e)} id="Umwiharikowumushinga" placeholder="Umwihariko wumushinga"/>
+                </div>
+                <div className="IcyatumyeyitabiraishimweryIndatwa">
+                    <label className="form__label" htmlfor="IcyatumyeyitabiraishimweryIndatwa">7.Icyatumye yitabira ishimwe ry’Indatwa</label>
+                    <input className="form__input" type="text" value={icyatumyeyitabiraishimweryIndatwa} onChange = {(e) => handleIcyatumyeyitabiraishimweryIndatwa(e)} id="IcyatumyeyitabiraishimweryIndatwa" placeholder="Icyatumye yitabira ishimwe ryIndatwa"/>
                 </div>
 
                 </div>  
