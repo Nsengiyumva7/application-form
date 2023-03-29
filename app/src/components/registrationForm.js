@@ -147,17 +147,18 @@ function RegistrationForm({ backendData }) {
             setUkoawuhuzanatekinoloji('');
              setUmwiharikowumushinga('');
              setIcyatumyeyitabiraishimweryIndatwa('');
-        }       
+        } 
+        // console.log(backendData)      
     
     //postdata
   const postData = async () => {
     try {
-      console.log(amazina,telephone,email,ahoaherereye,igitsina,igiheyavukiye,numeroIndangamuntu,
-        amazinayikigo,ahogikorera,visionyikigo,missionyikigo,igihecyatangiriyegukora,amazinayusabamuzinaryikigo,
-        icyoashinzwemukigo,telephonezusabiraikigo,ahoahererey,numeroyIndangamuntuyusabiraikigo,emailyusabiraikigo,
-        igitsinacye,igiheyavukiy,kuribose,icyoyitezeUmusaruroyiteze,icyoumushingaweumariyeabaturage,uruharerwurubyirukomumushingawe,
-        ukoawuhuzanatekinoloji,umwiharikowumushinga,icyatumyeyitabiraishimweryIndatwa)
-      const response = await fetch("/", {
+    //   console.log(amazina,telephone,email,ahoaherereye,igitsina,igiheyavukiye,numeroIndangamuntu,
+    //     amazinayikigo,ahogikorera,visionyikigo,missionyikigo,igihecyatangiriyegukora,amazinayusabamuzinaryikigo,
+    //     icyoashinzwemukigo,telephonezusabiraikigo,ahoahererey,numeroyIndangamuntuyusabiraikigo,emailyusabiraikigo,
+    //     igitsinacye,igiheyavukiy,kuribose,icyoyitezeUmusaruroyiteze,icyoumushingaweumariyeabaturage,uruharerwurubyirukomumushingawe,
+    //     ukoawuhuzanatekinoloji,umwiharikowumushinga,icyatumyeyitabiraishimweryIndatwa)
+      const response = await fetch("/form", {
         method: "POST",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify({
@@ -205,8 +206,8 @@ function RegistrationForm({ backendData }) {
             <h4>INSTRUCTIONS FOR REQUESTION </h4>
             <h5>KUZUZA UMWIRONDORO</h5>
 
-             {/* {backendData.map((item) => {
-            return (
+             {/* {backendData.map((item) => 
+             (
               <div key={item.id}>
                 <h3>{item.name}</h3>
                 <h3>{item.telephone}</h3>
@@ -237,11 +238,12 @@ function RegistrationForm({ backendData }) {
                 <h3>{item.cause_presence}</h3>
 
               </div>
-            );
-          })} */}
+            )
+          )
+             } */}
 
             <div className="form-body">
-            <h8>a.Umwiro w’usaba kugiti cye cyangwa umunyamakuru , umurinzi gakondo ugizwe n’ibi bikurikira</h8>
+            <h4>a.Umwiro w’usaba kugiti cye cyangwa umunyamakuru , umurinzi gakondo ugizwe n’ibi bikurikira</h4>
                  <div className="Name">
             <label className="form__label" htmlFor="Amazina">
               1.Amazina y’usaba{" "}
@@ -256,82 +258,82 @@ function RegistrationForm({ backendData }) {
             />
           </div>
                 <div className="Telephone">
-                    <label className="form__label" htmlfor="Telephone">2.Telephone y’usaba</label>
+                    <label className="form__label" htmlFor="Telephone">2.Telephone y’usaba</label>
                     <input  type="Telephone"  id="Telephone" value={telephone}  className="form__input" onChange = {(e) => handleTelephone(e)} placeholder="Telephone"/>
                 </div>
                 <div className="email">
-                    <label className="form__label" htmlfor="email">3.E-mail</label>
+                    <label className="form__label" htmlFor="email">3.E-mail</label>
                     <input  type="email" id="email" className="form__input" value={email} onChange = {(e) => handleEmail(e)} placeholder="Email"/>
                 </div>
                 <div className="Ahoaherereye">
-                    <label className="form__label" htmlfor="Ahoaherereye">4.Aho aherereye/ Akarere, Umurenge,Akagari</label>
+                    <label className="form__label" htmlFor="Ahoaherereye">4.Aho aherereye/ Akarere, Umurenge,Akagari</label>
                     <input className="form__input" type="text"  id="Ahoaherereye" value={ahoaherereye} onChange = {(e) => handleAhoaherereye(e)} placeholder="Aho aherereye"/>
                 </div>
                     <div className="Igitsina">
-                    <label className="form__label" htmlfor="Igitsina">5.Igitsina</label>
+                    <label className="form__label" htmlFor="Igitsina">5.Igitsina</label>
                     <input className="form__input" type="Igitsina" id="Igitsina" value={igitsina} onChange = {(e) => handleIgitsina(e)} placeholder="Igitsina"/>
                 </div>
                 <div className="Igiheyavukiye">
-                    <label className="form__label" htmlfor="Igiheyavukiye">6.Igihe yavukiye</label>
+                    <label className="form__label" htmlFor="Igiheyavukiye">6.Igihe yavukiye</label>
                     <input className="form__input" type="Igiheyavukiye" id="Igiheyavukiye" value={igiheyavukiye} onChange = {(e) => handleIgiheyavukiye(e)} placeholder="Igihe yavukiye"/>
                 </div>
                 <div className="NumeroIndangamuntu">
-                    <label className="form__label" htmlfor="NumeroIndangamuntu">7.Numero y'Indangamuntu</label>
+                    <label className="form__label" htmlFor="NumeroIndangamuntu">7.Numero y'Indangamuntu</label>
                     <input className="form__input" type="NumeroIndangamuntu" id="NumeroIndangamuntu" value={numeroIndangamuntu} onChange = {(e) => handleNumeroIndangamuntu(e)} placeholder="Numero Indangamuntu"/>
                 </div>
             </div>
             <div className="form-body">
-            <h8>b.Umwirondo w’uwusaba nk’ikigo</h8>
+            <h4>b.Umwirondo w’uwusaba nk’ikigo</h4>
             <div className="Amazinayikigo">
-                    <label className="form__label" htmlfor="Amazinayikigo">1.Amazina y’ikigo</label>
+                    <label className="form__label" htmlFor="Amazinayikigo">1.Amazina y’ikigo</label>
                     <input className="form__input" type="text" value={amazinayikigo} onChange = {(e) => handleAmazinayikigo(e)} id="Amazinayikigo" placeholder="Amazinayikigo"/>
                 </div>
                 <div className="Ahogikorera ">
-                    <label className="form__label" htmlfor="Ahogikorera">2.Aho gikorera(Akarere, Umujyi / Umurenge , Akagari)</label>
+                    <label className="form__label" htmlFor="Ahogikorera">2.Aho gikorera(Akarere, Umujyi / Umurenge , Akagari)</label>
                     <input className="form__input" type="text" value={ahogikorera} onChange = {(e) => handleAhogikorera(e)} id="Ahogikorera" placeholder="Ahogikorera"/>
                 </div>
                 <div className="Visionyikigo">
-                    <label className="form__label" htmlfor="Visionyikigo">3.Vision y’ikigo</label>
+                    <label className="form__label" htmlFor="Visionyikigo">3.Vision y’ikigo</label>
                     <input className="form__input" type="text" value={visionyikigo} onChange = {(e) => handleVisionyikigo(e)} id="Visionyikigo" placeholder="Vision yikigo"/>
                 </div>
                 <div className="Missionyikigo">
-                    <label className="form__label" htmlfor="Missionyikigo">4.Mission y’ikigo</label>
+                    <label className="form__label" htmlFor="Missionyikigo">4.Mission y’ikigo</label>
                     <input className="form__input" type="text" value={missionyikigo} onChange = {(e) => handleMissionyikigo(e)} id="Missionyikigo" placeholder="Mission yikigo"/>
                 </div>
                 <div className="Igihecyatangiriyegukora">
-                    <label className="form__label" htmlfor="Igihecyatangiriyegukora">5.Igihe cyatangiriye gukora </label>
+                    <label className="form__label" htmlFor="Igihecyatangiriyegukora">5.Igihe cyatangiriye gukora </label>
                     <input className="form__input" type="text" value={igihecyatangiriyegukora} onChange = {(e) => handleIgihecyatangiriyegukora(e)} id="Igihecyatangiriyegukora" placeholder="Igihe cyatangiri yegukora"/>
                 </div>
                 <div className="Amazinayusabamuzinaryikigo">
-                    <label className="form__label" htmlfor="Amazinayusabamuzinaryikigo">6.Amazina y’usaba muzina ry’ikigo</label>
+                    <label className="form__label" htmlFor="Amazinayusabamuzinaryikigo">6.Amazina y’usaba muzina ry’ikigo</label>
                     <input className="form__input" type="text" value={amazinayusabamuzinaryikigo} onChange = {(e) => handleAmazinayusabamuzinaryikigo(e)} id="Amazinayusabamuzinaryikigo" placeholder="AAmazina yusaba muzina ryikigo"/>
                 </div>
                 <div className="Icyoashinzwemukigo">
-                    <label className="form__label" htmlfor="Icyoashinzwemukigo">7.Icyo ashinzwe mu kigo</label>
+                    <label className="form__label" htmlFor="Icyoashinzwemukigo">7.Icyo ashinzwe mu kigo</label>
                     <input className="form__input" type="text" value={icyoashinzwemukigo} onChange = {(e) => handleIcyoashinzwemukigo(e)} id="Icyoashinzwemukigo" placeholder="Icyo ashinzwe mukigo"/>
                 </div>
                 <div className="Telephonezusabiraikigo">
-                    <label className="form__label" htmlfor="Telephonezusabiraikigo">8.Telephone z’usabira ikigo</label>
+                    <label className="form__label" htmlFor="Telephonezusabiraikigo">8.Telephone z’usabira ikigo</label>
                     <input className="form__input" type="text" value={telephonezusabiraikigo} onChange = {(e) => handleTelephonezusabiraikigo(e)} id="Telephonezusabiraikigo" placeholder="Telephone zusabira ikigo"/>
                 </div>
                 <div className="Ahoaherereye">
-                    <label className="form__label" htmlfor="Ahoaherereye">9.Aho aherereye</label>
+                    <label className="form__label" htmlFor="Ahoaherereye">9.Aho aherereye</label>
                     <input className="form__input" type="text" value={ahoahererey} onChange = {(e) => handleAhoahererey(e)} id="Ahoherereye" placeholder="Ahoherereye"/>
                 </div>
                 <div className="NumeroyIndangamuntuyusabiraikigo">
-                    <label className="form__label" htmlfor="NumeroyIndangamuntuyusabiraikigo">10.Numero y’ Indangamuntu y’usabira ikigo</label>
+                    <label className="form__label" htmlFor="NumeroyIndangamuntuyusabiraikigo">10.Numero y’ Indangamuntu y’usabira ikigo</label>
                     <input className="form__input" type="text" value={numeroyIndangamuntuyusabiraikigo} onChange = {(e) => handleNumeroIndangamuntuyusabiraikigo(e)} id="NumeroyIndangamuntuyusabiraikigo" placeholder="Numero yIndangamuntu yusabira ikigo"/>
                 </div>
                 <div className="Emailyusabiraikigo">
-                    <label className="form__label" htmlfor="Emailyusabiraikigo">11.E-mail y’usabira ikigo</label>
+                    <label className="form__label" htmlFor="Emailyusabiraikigo">11.E-mail y’usabira ikigo</label>
                     <input className="form__input" type="text" value={emailyusabiraikigo} onChange = {(e) => handleEmailyusabiraikigo(e)} id="Emailyusabiraikigo" placeholder="Email yusabira ikigo"/>
                 </div>
                 <div className="Igitsinacye">
-                    <label className="form__label" htmlfor="Igitsinacye">12.Igitsina cye </label>
+                    <label className="form__label" htmlFor="Igitsinacye">12.Igitsina cye </label>
                     <input className="form__input" type="text" value={igitsinacye} onChange = {(e) => handleIgitsinacye(e)} id="Igitsinacye" placeholder="Igitsina cye"/>
                 </div>
                 <div className="Igiheyavukiy">
-                    <label className="form__label" htmlfor="Igiheyavukiy">13.Igihe yavukiye</label>
+                    <label className="form__label" htmlFor="Igiheyavukiy">13.Igihe yavukiye</label>
                     <input className="form__input" type="text" value={igiheyavukiy} onChange = {(e) => handleIgiheyavukiy(e)} id="Igiheyavukiy" placeholder="Igihe yavukiye"/>
                 </div>
 
@@ -340,32 +342,32 @@ function RegistrationForm({ backendData }) {
                 <div className="form-body">
                 <h5>INSHAMAKE K’UBYO UKORA </h5>
                     <div className="Kuribose">
-                    <label className="form__label" htmlfor="Kuribose">1.Kuri bose (ku byiciro byose uko ari 5)</label>
+                    <label className="form__label" htmlFor="Kuribose">1.Kuri bose (ku byiciro byose uko ari 5)</label>
                     <input className="form__input" type="text" value={kuribose} onChange = {(e) => handleKuribose(e)} id="Kuribose" placeholder="Kuribose"/>
                 </div>
                 
                 <div className="IcyoyitezeUmusaruroyiteze">
-                    <label className="form__label" htmlfor="IcyoyitezeUmusaruroyiteze">2.Icyo yiteze/ Umusaruro yiteze</label>
+                    <label className="form__label" htmlFor="IcyoyitezeUmusaruroyiteze">2.Icyo yiteze/ Umusaruro yiteze</label>
                     <input className="form__input" type="text" value={icyoyitezeUmusaruroyiteze} onChange = {(e) => handleIcyoyitezeUmusaruroyiteze(e)} id="IcyoyitezeUmusaruroyiteze" placeholder="Icyo yiteze/Umusaruro yiteze"/>
                 </div>
                 <div className="Icyoumushingaweumariyeabaturage">
-                    <label className="form__label" htmlfor="Icyoumushingaweumariyeabaturage">3.Icyo umushingawe umariye abaturage</label>
+                    <label className="form__label" htmlFor="Icyoumushingaweumariyeabaturage">3.Icyo umushingawe umariye abaturage</label>
                     <input className="form__input" type="text" value={icyoumushingaweumariyeabaturage} onChange = {(e) => handleIcyoumushingaweumariyeabaturage(e)} id="Icyoumushingaweumariyeabaturage" placeholder="Icyo umushinga we umariye abaturage"/>
                 </div>
                 <div className="Uruharerwurubyirukomumushingawe">
-                    <label className="form__label" htmlfor="Uruharerwurubyirukomumushingawe">4.Uruhare rw’urubyiruko mu mushingawe </label>
+                    <label className="form__label" htmlFor="Uruharerwurubyirukomumushingawe">4.Uruhare rw’urubyiruko mu mushingawe </label>
                     <input className="form__input" type="text" value={uruharerwurubyirukomumushingawe} onChange = {(e) => handleUruharerwurubyirukomumushingawe(e)} id="Uruharerwurubyirukomumushingawe" placeholder="Uruhare rwurubyiruko  mumushinga we"/>
                 </div>
                 <div className="Ukoawuhuzanatekinoloji">
-                    <label className="form__label" htmlfor="Ukoawuhuzanatekinoloji">5.Uko awuhuza na tekinoloji</label>
+                    <label className="form__label" htmlFor="Ukoawuhuzanatekinoloji">5.Uko awuhuza na tekinoloji</label>
                     <input className="form__input" type="text" value={ukoawuhuzanatekinoloji} onChange = {(e) => handleUkoawuhuzanatekinoloji(e)} id="Ukoawuhuzanatekinoloji" placeholder="Uko awuhuza na tekino loji"/>
                 </div>
                 <div className="Umwiharikowumushinga">
-                    <label className="form__label" htmlfor="Umwiharikowumushinga">6.Umwihariko w’umushinga</label>
+                    <label className="form__label" htmlFor="Umwiharikowumushinga">6.Umwihariko w’umushinga</label>
                     <input className="form__input" type="text" value={umwiharikowumushinga} onChange = {(e) => handleUmwiharikowumushinga(e)} id="Umwiharikowumushinga" placeholder="Umwihariko wumushinga"/>
                 </div>
                 <div className="IcyatumyeyitabiraishimweryIndatwa">
-                    <label className="form__label" htmlfor="IcyatumyeyitabiraishimweryIndatwa">7.Icyatumye yitabira ishimwe ry’Indatwa</label>
+                    <label className="form__label" htmlFor="IcyatumyeyitabiraishimweryIndatwa">7.Icyatumye yitabira ishimwe ry’Indatwa</label>
                     <input className="form__input" type="text" value={icyatumyeyitabiraishimweryIndatwa} onChange = {(e) => handleIcyatumyeyitabiraishimweryIndatwa(e)} id="IcyatumyeyitabiraishimweryIndatwa" placeholder="Icyatumye yitabira ishimwe ryIndatwa"/>
                 </div>
 
